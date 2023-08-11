@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -246,5 +246,138 @@ h1 {
     padding: 10px;
 }
 
+#menu-toggle {
+    display: none; /* Oculta o checkbox */
+}
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around; 
+    width: 30px;
+    height: 24px;
+    background: transparent; 
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative; 
+    z-index: 10000;
+    padding-left: 10px;
+}
 
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px; 
+}
+
+.linha {
+    background-color: #c2bdbd; 
+    height: 2px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    z-index: 11;  
+    position: relative; 
+}
+
+.hamburger::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+}
+
+.linha::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    background-color: #fff;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .menu-nav {
+        display: none; /* Por padrão, esconde o menu */
+        width: 100%;
+        text-align: center;
+    }
+
+    #menu-toggle:checked ~ .menu-nav {
+        display: block; /* Mostra o menu quando o hambúrguer for clicado */
+    }
+
+    .menu-nav ul {
+        padding-left: 0;
+    }
+
+    .menu-nav li {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .localizacao-container {
+        flex-direction: column;
+    }
+
+    .localizacao-map, .localizacao-text {
+        max-width: 100%;
+    }
+
+    .menu-container {
+        justify-content: center;
+    }
+
+    .menu-section {
+        margin: 10px auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .titulo {
+        font-size: 24pt;
+    }
+
+    .logo {
+        max-width: 25vw;
+        max-height: 25vw;
+    }
+
+    .menu-nav {
+        padding: 1vw 1vw;
+    }
+
+    .menu-nav li {
+        padding: 0 2vw;
+    }
+
+    .menu-item img {
+        max-width: 150px;
+        margin-left: 10px;
+    }
+
+    .menu-item h4,
+    .menu-item p,
+    .menu-item h3 {
+        font-size: 9pt;
+    }
+
+    .formulario-section {
+        margin: 10px;
+    }
+
+    .formulario-section button {
+        font-size: 10pt;
+    }
+}
